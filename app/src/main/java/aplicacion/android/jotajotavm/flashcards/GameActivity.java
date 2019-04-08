@@ -55,11 +55,12 @@ public class GameActivity extends AppCompatActivity {
                         Log.d("respuesta:", "correcta");
                         Toast.makeText(GameActivity.this, "Respuesta Correcta", Toast.LENGTH_SHORT).show();
                         resultado.setText("Correcto");
-                        addRating(rating, vin);
+                        addRating(rating, vin, 2);
                     } else {
                         Log.d("respuesta:", "incorrecta");
                         Toast.makeText(GameActivity.this, "Respuesta In Correcta", Toast.LENGTH_SHORT).show();
                         resultado.setText("Inorrecto");
+                        addRating(rating, vin, 1);
                     }
 
                     btnComportamiento = "next";
@@ -107,8 +108,8 @@ public class GameActivity extends AppCompatActivity {
         Log.d("datos sss:" , pregunta);
     }
 
-    private void addRating(int rating, int vin){
-        rating = rating + 1;
+    private void addRating(int rating, int vin, int incremento){
+        rating = rating + incremento;
         if(db != null){
             ContentValues Registro = new ContentValues();
             Registro.put("rating", rating);
