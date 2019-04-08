@@ -59,7 +59,7 @@ public class GameActivity extends AppCompatActivity {
                     } else {
                         Log.d("respuesta:", "incorrecta");
                         Toast.makeText(GameActivity.this, "Respuesta In Correcta", Toast.LENGTH_SHORT).show();
-                        resultado.setText("Inorrecto");
+                        resultado.setText("Inorrecto, la respuesta es "+respuesta.trim().toLowerCase());
                         addRating(rating, vin, 1);
                     }
 
