@@ -110,10 +110,14 @@ public class GameActivity extends AppCompatActivity {
 
     private void addRating(int rating, int vin, int incremento){
         rating = rating + incremento;
-        if(db != null){
-            ContentValues Registro = new ContentValues();
-            Registro.put("rating", rating);
-            db.update("Cards", Registro, "VIN="+vin, null);
+        if (rating >= 50){
+            db.delete("Cards", "VIN=" + vin, null);
+        } else {
+            if (db != null) {
+                ContentValues Registro = new ContentValues();
+                Registro.put("rating", rating);
+                db.update("Cards", Registro, "VIN=" + vin, null);
+            }
         }
     }
 

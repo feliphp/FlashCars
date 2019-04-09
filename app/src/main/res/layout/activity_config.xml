@@ -4,13 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="321dp">
-
-    </ListView>
-
     <EditText
         android:id="@+id/editTextPregunta"
         android:layout_width="match_parent"
@@ -26,6 +19,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Respuesta" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="321dp">
+
+    </ListView>
 
     <Button
         android:id="@+id/buttonCreate"

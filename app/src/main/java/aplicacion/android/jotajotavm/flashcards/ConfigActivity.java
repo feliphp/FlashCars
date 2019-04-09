@@ -10,6 +10,7 @@ import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -101,7 +102,12 @@ public class ConfigActivity extends AppCompatActivity {
             nuevoRegistro.put("pregunta",Pregunta);
             nuevoRegistro.put("respuesta",Respuesta);
             nuevoRegistro.put("rating", 0);
-            db.insert("Cards", null, nuevoRegistro);
+            Cursor cursor = db.rawQuery("SELECT * FROM Cards WHERE pregunta ='"+Pregunta+"'" , null);
+            if(cursor.moveToFirst()){
+                Toast.makeText(ConfigActivity.this, "Pregunta Repetida", Toast.LENGTH_SHORT).show();
+            } else {
+                db.insert("Cards", null, nuevoRegistro);
+            }
         }
     }
 
